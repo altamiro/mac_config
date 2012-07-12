@@ -1,0 +1,6 @@
+shell -bash
+startup_message off
+defscrollback 5000
+
+hardstatus on
+hardstatus alwayslastline "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%< "
