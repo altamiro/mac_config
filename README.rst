@@ -3,6 +3,23 @@ Mac Config
 ==========
 
 
+TODO
+====
+
+- Uninstall MacPorts
+- Disable Cpas lock Key
+- Install
+
+  - JSLint(Hint)
+  - Perl::Critic, Perl::Tidy
+  - Pychecker? PyLint? PEP8?
+  - PythonTidy
+  - Pelusa
+  - HTML Tidy
+  - CSS tidy
+  - Shell Beautifier
+
+
 Directry Tree
 =============
 
@@ -27,19 +44,19 @@ Directry Tree
   |  |  |  +- gosh
   |  |  |  +- lua
   |  |  |  +- coffee
+
+  ~/
+  +- github/
+  +- local/
+  |  +- bin/
+  |  +- virtualenv/
+  |  +- perlbrew/
   |
-  +- Users/
-  |  +- me/
-  |  |  +- github/
-  |  |  +- local/
-  |  |  |  +- virtualenv/
-  |  |  |  +- perlbrew/
-  |  |  |
-  |  |  +- .rvm/
+  +- .rvm/
 
 
-Applications
-============
+Applications/Tools
+==================
 
 - `KeePass <http://www.keepassx.org/>`_
 - `StartupSound.prefPane <http://www5e.biglobe.ne.jp/~arcana/StartupSound/BETA/index.en.html>`_
@@ -55,9 +72,30 @@ Applications
   - `Xcode <http://itunes.apple.com/jp/app/xcode/id497799835?mt=12>`_
     
     - Command Line Tools
-- `Homebrew <http://mxcl.github.com/homebrew/>`_
 
-  - Graphviz -- brew install graphviz
+
+Homebrew
+--------
+
+`Homebrew <http://mxcl.github.com/homebrew/>`_
+
+::
+
+  $ brew install cherokee
+  $ brew install graphviz
+  $ brew install autconf
+
+Screen-Devel
+------------
+
+::
+
+  $ git clone git://git.savannah.gnu.org/screen.git
+  $ cd screen/src
+  $ ./autogen.sh
+  $ ./configure --prefix=$HOME/local
+  $ make
+  $ make install
 
 
 Programming Languages

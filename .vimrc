@@ -9,6 +9,7 @@ set shiftwidth=4
 set expandtab
 set ignorecase
 set cursorline
+set backspace=indent,eol,start
 
 syntax on
 
