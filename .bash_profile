@@ -10,15 +10,23 @@ alias screen="~/local/bin/screen"
 # exports
 # -------
 
-PATH=$PATH:/usr/local/bin
-PATH=$PATH:/opt/local/bin
-PATH=$PATH:/opt/local/sbin
-PATH=$PATH:~/local/bin
-export PATH
-
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 export EDITOR=vim
 export TERM=linux
+
 export PERLBREW_ROOT=~/local/perlbrew/
+
+PATH=$PATH:/usr/local/bin
+PATH=$PATH:~/local/bin
+PATH=$PATH:${PERLBREW_ROOT}bin/
+export PATH
+
+# virtualenv
+# ----------
+
+source ~/local/virtualenv/python2.7/bin/activate
+
 
 # shell prompt
 # ------------
@@ -29,7 +37,7 @@ export PS1=":\e[33m\w\e[m\n\$ "
 # ----- tmp dir -----
 
 today=`date +%Y%m%d`
-if [ -d "~/.tmp/$today" ]; then
+if [[ ! -d "~/.tmp/$today" ]]; then
     cd ~/
     rm -rf ~/tmp
     mkdir ~/.tmp/$today -p
