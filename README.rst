@@ -9,7 +9,6 @@ TODO
 - Install
 
   - JSLint(Hint)
-  - Perl::Critic, Perl::Tidy
   - Pychecker? PyLint? PEP8?
   - PythonTidy
   - Pelusa
@@ -34,6 +33,7 @@ Directry Tree
   |  +- checkout/   -- git, mercurial, svn, ...
   |
   +- .rvm/
+  +- tmp/
 
   /
   +- usr/
@@ -95,11 +95,14 @@ Homebrew
 
 ::
 
-  $ brew install cherokee
-  $ brew install graphviz
+  $ brew install wget
+  $ brew install tree
+  $ brew install w3m
   $ brew install autconf
   $ brew install autmake
   $ brew install mercurial
+  $ brew install graphviz
+  $ brew install cherokee
 
 
 Screen-Devel
@@ -137,10 +140,11 @@ Perl
 
 ::
 
-  $ echo "export PERLBREW_ROOT=~/local/perlbrew/" >> ~/.bash_profile
+  $ export PERLBREW_ROOT=~/local/perlbrew/
   $ source ~/.bash_profile
   $ curl -kL http://install.perlbrew.pl | bash
   $ ~/local/perlbrew/bin/perlbrew init
+  $ ~/local/perlbrew/bin/perlbrew install-cpanm
   $ ~/local/perlbrew/bin/perlbrew install perl-5.16.0
   $ ~/local/perlbrew/bin/perlbrew use perl-5.16.0
   $ perl -v
@@ -148,6 +152,25 @@ Perl
   $ exit
   $ perl -v
   This is perl 5, version 12, subversion 3 (v5.12.3) built for darwin-thread-multi-2level
+
+.bash_profile::
+
+  export PERLBREW_ROOT=~/local/perlbrew/
+  PATH=$PATH:${PERLBREW_ROOT}bin/
+  source ~/local/perlbrew/etc/bashrc
+
+default::
+
+  $ perlbrew switch perl-5.16.0
+
+CPAN::
+
+  $ cpanm install Perl::Critic
+  $ cpanm install Perl::Tidy
+  $ cpanm install Class::Accessor
+  $ cpanm install Class::Data::Inheritable
+  $ cpanm install Mojolicious
+  $ cpanm install Template::Toolkit
 
 
 Python
@@ -178,7 +201,19 @@ Python
   $ deactivate
   $ python -V
   Python 2.7.1
+
+default::
+
   $ echo "source ~/local/virtualenv/python2.7/bin/activate" >> ~/.bash_profile
+
+pip::
+
+  $ pip install web.py
+  $ pip install django
+  $ pip install selenium
+  $ pip install PyQuery
+  $ pip install sqlobject
+  $ pip install pygments
 
 
 Ruby
@@ -197,7 +232,16 @@ Ruby
   $ rvm reset
   $ ruby -v
   ruby 1.8.7 (2011-12-28 patchlevel 357) [universal-darwin11.0]
+
+default::
+
   $ rvm use --default ruby-1.9.3
+
+gem::
+
+  $ gem install rails
+  $ gem install sinatra
+  $ gem install sass
 
 
 Node.js
@@ -207,7 +251,12 @@ Node.js
 
   $ brew install node
   $ curl http://npmjs.org/install.sh | sh
+
+npm::
+
   $ npm install -g coffee-script
+  $ npm install -g jslint
+  $ npm install -g jshint
 
 
 Scala

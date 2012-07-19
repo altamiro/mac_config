@@ -3,7 +3,6 @@
 
 alias ll="ls -l"
 alias vless="/usr/share/vim/vim73/macros/less.sh"
-alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 alias updatedb="sudo /usr/libexec/locate.updatedb"
 alias screen="~/local/bin/screen"
 
@@ -15,17 +14,21 @@ export LANG=en_US.UTF-8
 export EDITOR=vim
 export TERM=linux
 
-export PERLBREW_ROOT=~/local/perlbrew/
+export PERLBREW_ROOT=~/local/perlbrew
 
 PATH=$PATH:/usr/local/bin
 PATH=$PATH:~/local/bin
-PATH=$PATH:${PERLBREW_ROOT}bin/
+PATH=$PATH:${PERLBREW_ROOT}/bin
 export PATH
 
-# virtualenv
-# ----------
+# virtualenv, rvm, perlbrew
+# -------------------------
 
 source ~/local/virtualenv/python2.7/bin/activate
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+source ~/local/perlbrew/etc/bashrc
 
 
 # shell prompt
@@ -37,10 +40,12 @@ export PS1=":\e[33m\w\e[m\n\$ "
 # ----- tmp dir -----
 
 today=`date +%Y%m%d`
-if [[ ! -d "~/.tmp/$today" ]]; then
+if [ ! -d ~/.tmp/$today ]; then
+    oldtmp=`readlink ~/tmp`
     cd ~/
+    mkdir -p ~/.tmp/$today
+    ln -sf $oldtmp ~/.tmp/$today/prev
     rm -rf ~/tmp
-    mkdir ~/.tmp/$today -p
     ln -sf ~/.tmp/$today ~/tmp
 fi
 

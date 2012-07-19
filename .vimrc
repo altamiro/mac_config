@@ -13,6 +13,9 @@ set backspace=indent,eol,start
 
 syntax on
 
-hi CursorLine cterm=none ctermbg=blue
+" Ref) http://stackoverflow.com/questions/7614546/vim-cursorline-color-change-in-insert-mode
+hi CursorLine cterm=none ctermbg=blue ctermfg=white
+autocmd InsertEnter * highlight  CursorLine ctermbg=none ctermfg=none
+autocmd InsertLeave * highlight  CursorLine ctermbg=blue ctermfg=white
 
 au BufRead,BufNewFile *.tmpl set filetype=html
