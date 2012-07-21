@@ -3,20 +3,6 @@ Mac Config
 ==========
 
 
-TODO
-====
-
-- Install
-
-  - JSLint(Hint)
-  - Pychecker? PyLint? PEP8?
-  - PythonTidy
-  - Pelusa
-  - HTML Tidy
-  - CSS tidy
-  - Shell Beautifier
-
-
 Directry Tree
 =============
 
@@ -35,32 +21,17 @@ Directry Tree
   +- .rvm/
   +- tmp/
 
-  /
-  +- usr/
-  |  +- bin/
-  |  |  +- java
-  |  |  +- perl
-  |  |  +- php
-  |  |  +- pyhon
-  |  |  +- ruby
-  |  |
-  |  +- local/
-  |  |  +- bin/
-  |  |  |  +- dot
-  |  |  |  +- io
-  |  |  |  +- node
-  |  |  |  +- npm
-  |  |  |  +- scala
-  |  |  |  +- gosh
-  |  |  |  +- lua
-  |  |  |  +- coffee
-
 
 Settings
 ========
 
 - Disable Caps Lock Key
   `How to Disable Caps Lock on Mac OS X - How-To Geek <http://www.howtogeek.com/?post_type=post&p=38828>`_
+
+gitconfig::
+
+  $ git config --global user.email "test@example.com"
+  $ git config --global user.name "grever"
 
 
 Applications/Tools
@@ -70,6 +41,9 @@ Applications/Tools
 
   - `GitHub for mac <http://mac.github.com/>`_
   - `Eclipse <http://www.eclipse.org/>`_
+  - `HTMLTidy <http://tidy.sourceforge.net/>`_
+  - `Tidy for HTML5 <https://github.com/w3c/tidy-html5/>`_
+  - `Bash Script Beautifier <http://www.arachnoid.com/linux/beautify_bash/index.html>`_
 - Utilities
 
   - `KeePass <http://www.keepassx.org/>`_
@@ -82,8 +56,9 @@ Applications/Tools
   - `Flash Player <http://get.adobe.com/flashplayer/>`_
 - AppStore
 
-  - `Skitch <http://itunes.apple.com/jp/app/skitch/id425955336?mt=13>`_
-  - `Xcode <http://itunes.apple.com/jp/app/xcode/id497799835?mt=12>`_
+  - `Skitch <http://itunes.apple.com/us/app/skitch/id425955336?mt=13>`_
+  - `Dash <http://itunes.apple.com/us/app/dash-docs-snippets/id458034879?mt=12>`_
+  - `Xcode <http://itunes.apple.com/us/app/xcode/id497799835?mt=12>`_
     
     - Command Line Tools
 
@@ -103,6 +78,10 @@ Homebrew
   $ brew install mercurial
   $ brew install graphviz
   $ brew install cherokee
+  $ brew install scons
+  $ brew install colortail
+  $ brew install colordiff
+  $ brew install gnu-indent
 
 
 Screen-Devel
@@ -116,6 +95,19 @@ Screen-Devel
   $ ./configure --prefix=$HOME/local
   $ make
   $ make install
+
+CSSTidy
+-------
+
+http://tidy.sourceforge.net/
+
+::
+
+  $ cd csstidy-source-1
+  $ scons
+  $ mv release/csstidy ~/local/
+  $ ln -sf ~/local/csstidy/csstidy ~/local/bin/csstidy
+
 
 
 Uninstall MacPorts
@@ -140,7 +132,7 @@ Perl
 
 ::
 
-  $ export PERLBREW_ROOT=~/local/perlbrew/
+  $ export PERLBREW_ROOT=~/local/perlbrew
   $ source ~/.bash_profile
   $ curl -kL http://install.perlbrew.pl | bash
   $ ~/local/perlbrew/bin/perlbrew init
@@ -155,8 +147,8 @@ Perl
 
 .bash_profile::
 
-  export PERLBREW_ROOT=~/local/perlbrew/
-  PATH=$PATH:${PERLBREW_ROOT}bin/
+  export PERLBREW_ROOT=~/local/perlbrew
+  PATH=$PATH:${PERLBREW_ROOT}/bin
   source ~/local/perlbrew/etc/bashrc
 
 default::
@@ -171,6 +163,18 @@ CPAN::
   $ cpanm install Class::Data::Inheritable
   $ cpanm install Mojolicious
   $ cpanm install Template::Toolkit
+  $ cpanm install Proc::Daemon
+
+
+PHP
+---
+
+::
+
+  $ brew tap josegonzalez/php
+  $ brew install php54
+  $ brew install phplint
+  $ ln -sf /usr/local/Cellar/php54/5.4.4/bin/php ~/local/bin/php
 
 
 Python
@@ -208,12 +212,19 @@ default::
 
 pip::
 
+  $ pip install pylint
   $ pip install web.py
   $ pip install django
   $ pip install selenium
   $ pip install PyQuery
   $ pip install sqlobject
   $ pip install pygments
+  $ pip install twisted
+  $ pip install daemoncmd
+
+easy_install::
+
+  $ easy_install benchmarker
 
 
 Ruby
@@ -243,6 +254,14 @@ gem::
   $ gem install sinatra
   $ gem install sass
 
+pelusa::
+
+  $ rvm install rbx
+  $ rvm use rbx
+  $ gem install rdoc
+  $ gem install pelusa
+  $ export RBXOPT=-X19
+
 
 Node.js
 -------
@@ -255,7 +274,6 @@ Node.js
 npm::
 
   $ npm install -g coffee-script
-  $ npm install -g jslint
   $ npm install -g jshint
 
 
