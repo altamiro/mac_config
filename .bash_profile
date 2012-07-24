@@ -13,7 +13,7 @@ alias indent="gindent -kr -ts4"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export EDITOR=vim
-export TERM=linux
+#export TERM=linux
 
 export PERLBREW_ROOT=~/local/perlbrew
 
@@ -45,8 +45,11 @@ pelusa () {
 # shell prompt
 # ------------
 
-PROMPT_COMMAND='echo -ne "\033k[${USER}@${HOSTNAME%%.*}]\033\\"'
-export PS1=":\e[33m\w\e[m\n\$ "
+case $TERM in
+    screen*) PROMPT_COMMAND='echo -ne "\033k[${USER}@${HOSTNAME%%.*}]\033\\"'
+esac
+
+export PS1="$USER@$HOSTNAME:\e[33m\w\e[m\n\$ "
 
 # tmp dir
 # -------

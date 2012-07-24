@@ -151,7 +151,7 @@ Perl
   PATH=$PATH:${PERLBREW_ROOT}/bin
   source ~/local/perlbrew/etc/bashrc
 
-default::
+perlbrew default::
 
   $ perlbrew switch perl-5.16.0
 
@@ -206,19 +206,20 @@ Python
   $ python -V
   Python 2.7.1
 
-default::
+virtualenv default::
 
   $ echo "source ~/local/virtualenv/python2.7/bin/activate" >> ~/.bash_profile
 
 pip::
 
   $ pip install pylint
+  $ pip install grin
+  $ pip install selenium
+  $ pip install pygments
   $ pip install web.py
   $ pip install django
-  $ pip install selenium
   $ pip install PyQuery
   $ pip install sqlobject
-  $ pip install pygments
   $ pip install twisted
   $ pip install daemoncmd
 
@@ -244,7 +245,7 @@ Ruby
   $ ruby -v
   ruby 1.8.7 (2011-12-28 patchlevel 357) [universal-darwin11.0]
 
-default::
+rvm default::
 
   $ rvm use --default ruby-1.9.3
 

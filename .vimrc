@@ -13,6 +13,10 @@ set backspace=indent,eol,start
 
 syntax on
 
+filetype on
+filetype plugin on
+source /usr/share/vim/vim73/macros/matchit.vim
+
 " Ref) http://stackoverflow.com/questions/7614546/vim-cursorline-color-change-in-insert-mode
 hi CursorLine cterm=none ctermbg=blue ctermfg=white
 autocmd InsertEnter * highlight  CursorLine ctermbg=none ctermfg=none
